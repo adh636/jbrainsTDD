@@ -82,6 +82,14 @@ describe("jbrains tdd course", () => {
             expect(new Fraction(3, 4)).toEqual(new Fraction(6, 8));
         });
 
+        it("should reduce fractions to whole number", () => {
+            expect(new Fraction(24, 4)).toEqual(new Fraction(6));
+        });
+
+        it("should reduce fractions to zero", () => {
+            expect(new Fraction(0, 2412)).toEqual(new Fraction(0));
+        });
+
     });
 
     describe("greatest common divisor", () => {
