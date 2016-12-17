@@ -33,6 +33,12 @@ describe("jbrains tdd course", () => {
             expect(sum.intValue()).toEqual(-1);
         });
 
+        it("should do non trivial but common denominator", () => {
+            let sum: Fraction = new Fraction(1, 5).plus(new Fraction(2, 5));
+            expect(sum.getNumerator()).toEqual(3);
+            expect(sum.getDenominator()).toEqual(5);
+        });
+
 
     });
 });

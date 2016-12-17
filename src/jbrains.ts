@@ -1,15 +1,25 @@
 export class Fraction {
-    value: number;
+    private numerator: number;
+    private denominator: number;
 
-    constructor(value: number) {
-        this.value = value;
+    constructor(numerator: number, denominator?: number) {
+        this.numerator = numerator;
+        this.denominator = denominator ? denominator : 1;
     }
 
     plus(that: Fraction): Fraction {
-        return new Fraction(this.intValue() + that.intValue()) ;
+        return new Fraction(this.getNumerator() + that.getNumerator(), this.getDenominator()) ;
     }
 
     intValue(): number {
-        return this.value;
+        return this.numerator;
+    }
+
+    getNumerator(): number {
+        return this.numerator;
+    }
+
+    getDenominator(): number {
+        return this.denominator;
     }
 }
