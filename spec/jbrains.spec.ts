@@ -28,6 +28,11 @@ describe("jbrains tdd course", () => {
             expect(sum.intValue()).toEqual(9);
         });
 
+        it("should do negative plus positive and return negative", () => {
+            let sum: Fraction = new Fraction(4).plus(new Fraction(-5));
+            expect(sum.intValue()).toEqual(-1);
+        });
+
 
     });
 });
