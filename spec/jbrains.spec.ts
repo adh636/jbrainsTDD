@@ -39,6 +39,17 @@ describe("jbrains tdd course", () => {
             expect(sum.getDenominator()).toEqual(5);
         });
 
+        it("should do non trivial but common denominator", () => {
+            let sum: Fraction = new Fraction(1, 5).plus(new Fraction(2, 5));
+            expect(sum.getNumerator()).toEqual(3);
+            expect(sum.getDenominator()).toEqual(5);
+        });
 
+    });
+
+    describe("fraction equals", () => {
+        it("should equal when same numerator and denominator", () => {
+            expect(new Fraction(3, 5).toString()).toEqual(new Fraction(3, 5).toString());
+        });
     });
 });

@@ -22,4 +22,17 @@ export class Fraction {
     getDenominator(): number {
         return this.denominator;
     }
+
+    toString(): string {
+        return this.numerator + " / " + this.denominator;
+    }
+
+    equals(other: Object): boolean {
+        if (other instanceof Fraction) {
+            let that: Fraction = <Fraction>other;
+            return this.numerator === that.numerator
+                && this.denominator === that.denominator;
+        }
+        return false;
+    }
 }
