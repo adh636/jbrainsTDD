@@ -4,7 +4,14 @@ export class Fraction {
 
     constructor(numerator: number, denominator?: number) {
         this.numerator = numerator;
-        this.denominator = denominator ? denominator : 1;
+        this.denominator = denominator ? denominator  : 1;
+        this.reduceFraction();
+    }
+
+    private reduceFraction() {
+        let gcd: number = this.gcd(this.numerator, this.denominator);
+        this.numerator = this.numerator / gcd;
+        this.denominator = this.denominator / gcd;
     }
 
     plus(that: Fraction): Fraction {
@@ -41,4 +48,14 @@ export class Fraction {
         }
         return false;
     }
+
+    gcd(a: number, b: number): number {
+        while (b !== 0) {
+            let t: number = b;
+            b = a % t;
+            a = t;
+        }
+        return Math.abs(a);
+    }
 }
+
