@@ -107,31 +107,31 @@ describe("jbrains tdd course", () => {
     describe("greatest common divisor", () => {
 
         it("should reduce reflexive", () => {
-            expect(new Fraction(1).gcd(1, 1)).toEqual(1);
-            expect(new Fraction(1).gcd(2, 2)).toEqual(2);
+            expect(Fraction.gcd(1, 1)).toEqual(1);
+            expect(Fraction.gcd(2, 2)).toEqual(2);
         });
 
         it("should reduce relatively prime", () => {
-            expect(new Fraction(1).gcd(2, 3)).toEqual(1);
-            expect(new Fraction(1).gcd(5, 7)).toEqual(1);
+            expect(Fraction.gcd(2, 3)).toEqual(1);
+            expect(Fraction.gcd(5, 7)).toEqual(1);
         });
 
         it("should reduce when one multiple of the other", () => {
-            expect(new Fraction(1).gcd(3, 9)).toEqual(3);
-            expect(new Fraction(1).gcd(5, 25)).toEqual(5);
+            expect(Fraction.gcd(3, 9)).toEqual(3);
+            expect(Fraction.gcd(5, 25)).toEqual(5);
         });
 
         it("should reduce common factor", () => {
-            expect(new Fraction(1).gcd(6, 8)).toEqual(2);
-            expect(new Fraction(1).gcd(49, 315)).toEqual(7);
-            expect(new Fraction(1).gcd(-24, -36)).toEqual(12);
-            expect(new Fraction(1).gcd(-24, 28)).toEqual(4);
+            expect(Fraction.gcd(6, 8)).toEqual(2);
+            expect(Fraction.gcd(49, 315)).toEqual(7);
+            expect(Fraction.gcd(-24, -36)).toEqual(12);
+            expect(Fraction.gcd(-24, 28)).toEqual(4);
         });
 
         it("should reduce zero", () => {
-            expect(new Fraction(1).gcd(1, 0)).toEqual(1);
-            expect(new Fraction(1).gcd(0, 5)).toEqual(5);
-            expect(new Fraction(1).gcd(0, 0)).toEqual(0);
+            expect(Fraction.gcd(1, 0)).toEqual(1);
+            expect(Fraction.gcd(0, 5)).toEqual(5);
+            expect(Fraction.gcd(0, 0)).toEqual(0);
         });
 
     });

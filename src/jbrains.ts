@@ -10,7 +10,7 @@ export class Fraction {
 
     private reduceFraction() {
         let signOfDenominator: number = this.denominator < 0 ? -1 : 1;
-        let gcd: number = this.gcd(this.numerator, this.denominator) * signOfDenominator;
+        let gcd: number = Fraction.gcd(this.numerator, this.denominator) * signOfDenominator;
         this.numerator = this.numerator / gcd;
         this.denominator = this.denominator / gcd;
     }
@@ -45,7 +45,7 @@ export class Fraction {
         return false;
     }
 
-    gcd(a: number, b: number): number {
+    static gcd(a: number, b: number): number {
         while (b !== 0) {
             let t: number = b;
             b = a % t;
