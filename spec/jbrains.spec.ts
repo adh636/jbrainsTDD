@@ -128,6 +128,12 @@ describe("jbrains tdd course", () => {
             expect(new Fraction(1).gcd(-24, 28)).toEqual(4);
         });
 
+        it("should reduce zero", () => {
+            expect(new Fraction(1).gcd(1, 0)).toEqual(1);
+            expect(new Fraction(1).gcd(0, 5)).toEqual(5);
+            expect(new Fraction(1).gcd(0, 0)).toEqual(0);
+        });
+
     });
 
 });
