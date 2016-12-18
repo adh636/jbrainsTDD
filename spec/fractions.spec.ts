@@ -1,4 +1,4 @@
-import {Fraction} from "../src/jbrains";
+import {Fraction} from "../src/fractions";
 describe("jbrains tdd course", () => {
 
     describe("add fractions", () => {
