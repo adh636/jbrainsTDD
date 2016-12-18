@@ -49,6 +49,18 @@ describe("jbrains tdd course", () => {
             expect(new Fraction(1, 2).plus(new Fraction(1, 3))).toEqual(new Fraction(5, 6));
         });
 
+        it("should add 2 fraction that add to whole number", () => {
+            expect(new Fraction(1, 2).plus(new Fraction(1, 2))).toEqual(new Fraction(1));
+        });
+
+        it("should add 2 fraction with denominators that are multiples", () => {
+            expect(new Fraction(5, 8).plus(new Fraction(3, 4))).toEqual(new Fraction(11, 8));
+        });
+
+        it("should add 2 fraction with negative denominators", () => {
+            expect(new Fraction(5, -8).plus(new Fraction(3, -4))).toEqual(new Fraction(11, -8));
+        });
+
     });
 
     describe("fraction equals", () => {
