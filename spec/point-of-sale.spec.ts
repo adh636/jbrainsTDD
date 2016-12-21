@@ -3,12 +3,16 @@ import {Display, Sale} from "../src/point-of-sale";
 describe("point of sale system", () => {
 
     describe("should sell one item", () => {
+        let lookupTable = {
+            "12345": "$7.95",
+            "23456": "$12.50"
+        };
         let display: Display;
         let sale: Sale;
 
         beforeEach(() => {
             display = new Display();
-            sale = new Sale(display);
+            sale = new Sale(display, lookupTable);
         });
 
         it("should find product", () => {
@@ -17,22 +21,16 @@ describe("point of sale system", () => {
         });
 
         it("should find a second product", () => {
-            let display: Display = new Display();
-            let sale: Sale = new Sale(display);
             sale.onBarcode("23456");
             expect(display.getText()).toEqual("$12.50");
         });
 
         it("should return product not found for barcode 99999", () => {
-            let display: Display = new Display();
-            let sale: Sale = new Sale(display);
             sale.onBarcode("99999");
             expect(display.getText()).toEqual("Product not found for 99999");
         });
 
         it("should handle empty barcode", () => {
-            let display: Display = new Display();
-            let sale: Sale = new Sale(display);
             sale.onBarcode("");
             expect(display.getText()).toEqual("Scanning error: empty barcode");
         });

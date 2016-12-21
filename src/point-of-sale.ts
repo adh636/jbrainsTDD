@@ -12,14 +12,12 @@ export class Display {
 
 export class Sale {
     private display: Display;
-    lookupTable: any = {
-        "12345": "$7.95",
-        "23456": "$12.50"
-    };
+    lookupTable: any;
 
 
-    constructor(display: Display) {
+    constructor(display: Display, lookupTable: any) {
         this.display = display;
+        this.lookupTable = lookupTable;
     }
 
     onBarcode(barcode: string) {
