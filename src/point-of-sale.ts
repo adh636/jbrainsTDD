@@ -8,36 +8,52 @@ export class Display {
     setText(text: string) {
         this.text = text;
     }
+
+    displayProductNotFoundMessage(barcode: string) {
+        this.setText("Product not found for " + barcode);
+    }
+
+    displayPrice(priceAsText: any) {
+        this.setText(priceAsText);
+    }
+
+    displayEmptyBarcodeMessage() {
+        this.setText("Scanning error: empty barcode");
+    }
 }
 
 export class Sale {
     private display: Display;
-    lookupTable: any;
+    catalog: any;
 
 
-    constructor(display: Display, lookupTable: any) {
+    constructor(display: Display, catalog: any) {
         this.display = display;
-        this.lookupTable = lookupTable;
+        this.catalog = catalog;
     }
 
     onBarcode(barcode: string) {
         if (barcode === "") {
-            this.displayEmptyBarcodeMessage();
+            this.display.displayEmptyBarcodeMessage();
             return;
         }
-        if (this.lookupTable[barcode]) this.displayPrice(barcode);
-        else this.displayProductNotFoundMessage(barcode);
+        if (!this.catalog.lookupTable[barcode]) {
+            this.display.displayProductNotFoundMessage(barcode)
+        }
+        else {
+            this.display.displayPrice(this.catalog.findPrice(barcode));
+        }
+    }
+}
+
+export class Catalog {
+    private lookupTable: any;
+
+    constructor(lookupTable: any) {
+        this.lookupTable = lookupTable;
     }
 
-    private displayProductNotFoundMessage(barcode: string) {
-        this.display.setText("Product not found for " + barcode);
-    }
-
-    private displayPrice(barcode: string) {
-        this.display.setText(this.lookupTable[barcode]);
-    }
-
-    private displayEmptyBarcodeMessage() {
-        this.display.setText("Scanning error: empty barcode");
+    findPrice(barcode: string) {
+        return this.lookupTable[barcode];
     }
 }

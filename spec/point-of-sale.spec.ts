@@ -1,12 +1,12 @@
-import {Display, Sale} from "../src/point-of-sale";
+import {Display, Sale, Catalog} from "../src/point-of-sale";
 
 describe("point of sale system", () => {
 
     describe("should sell one item", () => {
-        let lookupTable = {
+        let lookupTable: Catalog = new Catalog({
             "12345": "$7.95",
             "23456": "$12.50"
-        };
+        });
         let display: Display;
         let sale: Sale;
 
