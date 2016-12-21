@@ -17,5 +17,12 @@ describe("point of sale system", () => {
             sale.onBarcode("23456");
             expect(display.getText()).toEqual("$12.50");
         });
+
+        it("should return product not found for barcode 99999", () => {
+            let display: Display = new Display();
+            let sale: Sale = new Sale(display);
+            sale.onBarcode("99999");
+            expect(display.getText()).toEqual("Product not found for 99999");
+        });
     });
 });
