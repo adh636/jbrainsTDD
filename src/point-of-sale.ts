@@ -5,20 +5,16 @@ export class Display {
         return this.text;
     }
 
-    setText(text: string) {
-        this.text = text;
-    }
-
     displayProductNotFoundMessage(barcode: string) {
-        this.setText("Product not found for " + barcode);
+        this.text = "Product not found for " + barcode;
     }
 
     displayPrice(priceAsText: any) {
-        this.setText(priceAsText);
+        this.text = priceAsText;
     }
 
     displayEmptyBarcodeMessage() {
-        this.setText("Scanning error: empty barcode");
+        this.text = "Scanning error: empty barcode";
     }
 }
 

@@ -3,7 +3,7 @@ import {Display, Sale, Catalog} from "../src/point-of-sale";
 describe("point of sale system", () => {
 
     describe("should sell one item", () => {
-        let lookupTable: Catalog = new Catalog({
+        let priceCatalog: Catalog = new Catalog({
             "12345": "$7.95",
             "23456": "$12.50"
         });
@@ -12,7 +12,7 @@ describe("point of sale system", () => {
 
         beforeEach(() => {
             display = new Display();
-            sale = new Sale(display, lookupTable);
+            sale = new Sale(display, priceCatalog);
         });
 
         it("should find product", () => {
