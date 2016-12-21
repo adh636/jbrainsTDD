@@ -12,15 +12,19 @@ export class Display {
 
 export class Sale {
     private display: Display;
+    lookupTable: any = {
+        "12345": "$7.95",
+        "23456": "$12.50"
+    };
+
 
     constructor(display: Display) {
         this.display = display;
     }
 
     onBarcode(barcode: string) {
-        if (barcode === "") this.display.setText("Scanning error: empty barcode")
-        else if (barcode === "12345") this.display.setText("$7.95");
-        else if (barcode === "23456") this.display.setText("$12.50");
+        if (barcode === "") this.display.setText("Scanning error: empty barcode");
+        else if (this.lookupTable[barcode]) this.display.setText(this.lookupTable[barcode]);
         else this.display.setText("Product not found for " + barcode);
     }
 }
